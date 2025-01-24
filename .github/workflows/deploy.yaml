@@ -26,7 +26,7 @@ jobs:
       - name: Build Docker image
         run: |
            gcloud auth configure-docker us-west1-a-docker.pkg.dev
-           docker build -t us-central1-docker.pkg.dev/$GOOGLE_PROJECT/hello-world/nginx:latest .
+           docker build -t us-west1-a-docker.pkg.dev/$GOOGLE_PROJECT/hello-world/nginx:latest .
         
       - name: Push Docker image to GCR
         run: |
