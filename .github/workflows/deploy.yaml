@@ -25,12 +25,12 @@ jobs:
 
       - name: Build Docker image
         run: |
-           gcloud auth configure-docker us-west1-a-docker.pkg.dev
-           docker build -t us-west1-a-docker.pkg.dev/$GOOGLE_PROJECT/hello-world/nginx:latest .
+           gcloud auth configure-docker us-west1-docker.pkg.dev
+           docker build -t us-west1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/hello-world/my-image:latest .
         
       - name: Push Docker image to GCR
         run: |
-           docker push us-west1-a-docker.pkg.dev/$GOOGLE_PROJECT/hello-world/nginx:latest
+           docker push us-west1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/hello-world/my-image:latest
 
   terraform:
     name: Set up GKE Cluster with Terraform
