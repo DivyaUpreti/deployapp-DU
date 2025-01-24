@@ -23,14 +23,14 @@ jobs:
           zone: ${{ secrets.GOOGLE_ZONE }}
           install_components: 'gke-gcloud-auth-plugin'
 
-
       - name: Build Docker image
         run: |
-          docker build -t gcr.io/${{ secrets.GOOGLE_PROJECT }}/hello-world:latest .
+           gcloud auth configure-docker us-west1-a-docker.pkg.dev
+           docker build -t us-central1-docker.pkg.dev/$GOOGLE_PROJECT/hello-world/nginx:latest .
         
       - name: Push Docker image to GCR
         run: |
-          docker push gcr.io/${{ secrets.GOOGLE_PROJECT }}/hello-world:latest
+           docker push us-west1-a-docker.pkg.dev/$GOOGLE_PROJECT/hello-world/nginx:latest
 
   terraform:
     name: Set up GKE Cluster with Terraform
