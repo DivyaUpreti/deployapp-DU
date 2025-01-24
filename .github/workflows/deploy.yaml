@@ -24,11 +24,15 @@ jobs:
           install_components: 'gke-gcloud-auth-plugin'
 
       - name: Build Docker image
+        env:
+          GOOGLE_PROJECT: ${{ secrets.GOOGLE_PROJECT }}
         run: |
            gcloud auth configure-docker us-west1-docker.pkg.dev
            docker build -t us-west1-docker.pkg.dev/${{ secrets.GOOGLE_PROJECT }}/hello-world/my-image:latest .
         
       - name: Push Docker image to GCR
+        env:
+          GOOGLE_PROJECT: ${{ secrets.GOOGLE_PROJECT }}
         run: |
            docker push us-west1-docker.pkg.dev/${{ secrets.GOOGLE_PROJECT }}/hello-world/my-image:latest
 
