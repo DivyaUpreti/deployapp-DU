@@ -46,7 +46,7 @@ jobs:
       - name: Set up Google Cloud credentials
         uses: google-github-actions/setup-gcloud@v2
         with:
-          credentials_json: ${{ secrets.GOOGLE_CREDENTIALS }}
+          credentials_json: ${{ secrets.GOOGLE_CREDENTIAL }}
           project_id: ${{ secrets.GOOGLE_PROJECT }}
           zone: ${{ secrets.GOOGLE_ZONE}}
 
