@@ -1,5 +1,9 @@
 provider "google" {
+<<<<<<< HEAD
   credentials = jsondecode(var.google_credentials_file)
+=======
+  credentials = file(var.google_credentials_file)
+>>>>>>> parent of 9a0b78c (modified terraform main file)
   project     = var.google_project
   zone        = var.google_zone
 }
