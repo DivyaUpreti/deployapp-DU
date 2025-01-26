@@ -88,9 +88,9 @@ jobs:
 
       - name: Apply Kubernetes deployment
         run: |
-        gcloud container clusters get-credentials hello-world-cluster --zone us-west1-a
-        sed -i "s/GOOGLE_PROJECT/$GOOGLE_PROJECT/g" deployment.yaml
-        kubectl apply -f deployment.yaml
+           gcloud container clusters get-credentials hello-world-cluster --zone us-west1-a
+           sed -i "s/GOOGLE_PROJECT/$GOOGLE_PROJECT/g" deployment.yaml
+           kubectl apply -f deployment.yaml
 
   wait_for_loadbalancer:
     name: Wait for LoadBalancer IP
