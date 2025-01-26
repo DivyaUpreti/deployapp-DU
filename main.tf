@@ -1,5 +1,4 @@
 provider "google" {
-  credentials = jsondecode(var.google_credentials_file)
   project     = var.google_project
   zone        = var.google_zone
 }
