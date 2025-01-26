@@ -43,12 +43,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Google Cloud credentials
+      - name: Set up Google Cloud authentication
+        uses: google-github-actions/auth@v2
+        with:
+          google_credentials_file: ${{ secrets.GOOGLE_CREDENTIAL }}
+
+      - name: Set up Google Cloud SDK
         uses: google-github-actions/setup-gcloud@v2
         with:
-          credentials_json: ${{ secrets.GOOGLE_CREDENTIAL }}
           project_id: ${{ secrets.GOOGLE_PROJECT }}
-          zone: ${{ secrets.GOOGLE_ZONE}}
 
       - name: Set up Terraform
         uses: hashicorp/setup-terraform@v1
