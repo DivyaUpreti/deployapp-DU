@@ -46,7 +46,7 @@ jobs:
       - name: Set up Google Cloud authentication
         uses: google-github-actions/auth@v2
         with:
-          google_credentials_file: ${{ secrets.GOOGLE_CREDENTIAL }}
+          credentials_json: ${{ secrets.GOOGLE_CREDENTIAL }}
 
       - name: Set up Google Cloud SDK
         uses: google-github-actions/setup-gcloud@v2
@@ -54,7 +54,7 @@ jobs:
           project_id: ${{ secrets.GOOGLE_PROJECT }}
 
       - name: Set up Terraform
-        uses: hashicorp/setup-terraform@v1
+        uses: hashicorp/setup-terraform@v2
         with:
           terraform_version: 1.4.6
 
