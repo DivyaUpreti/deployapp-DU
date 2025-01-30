@@ -61,10 +61,10 @@ jobs:
       - name: Terraform Init
         run: terraform init
 
-  #    - name: Terraform Apply
-  #      run: terraform apply -auto-approve
-  #     env:
-  #       google_credentials_file: ${{ secrets.GOOGLE_CREDENTIAL }}
+      - name: Terraform Apply
+        run: terraform apply -auto-approve
+       env:
+       google_credentials_file: ${{ secrets.GOOGLE_CREDENTIAL }}
 
   deploy:
     name: Deploy Application to GKE
