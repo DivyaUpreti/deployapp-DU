@@ -3,7 +3,7 @@ provider "google" {
   zone        = var.google_zone
 }
 resource "google_container_cluster" "primary" {
-  name     = "hello-world-cluster"
+  name     = "hello-world-clusterr"
   location = var.google_zone
   initial_node_count = 1
   node_config {
