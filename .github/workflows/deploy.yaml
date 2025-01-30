@@ -61,10 +61,10 @@ jobs:
       - name: Terraform Init
         run: terraform init
 
-      - name: Terraform Apply
-        run: terraform apply -auto-approve
-        env:
-         google_credentials_file: ${{ secrets.GOOGLE_CREDENTIAL }}
+   #   - name: Terraform Apply
+   #     run: terraform apply -auto-approve
+   #     env:
+   #     google_credentials_file: ${{ secrets.GOOGLE_CREDENTIAL }}
 
   deploy:
     name: Deploy Application to GKE
@@ -88,5 +88,5 @@ jobs:
 
       - name: Apply Kubernetes deployment
         run: |
-           gcloud container clusters get-credentials hello-world-cluster --zone us-west1-a
+           gcloud container clusters get-credentials hello-world-clusterr --zone us-west1-a
            kubectl apply -f hello-world/deployment.yaml
